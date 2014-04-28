@@ -1,0 +1,20 @@
+{
+  "name": "classifier",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "tape test/*.js"
+  },
+  "dependencies": {
+    "express": "~3.5.0",
+    "mongolian": "*",
+    "async": "*",
+    "connect-mongo": "*",
+    "tape": "*",
+    "ejs": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "*"
+  }
+}
