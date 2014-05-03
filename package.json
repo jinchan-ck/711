@@ -12,7 +12,8 @@
     "async": "*",
     "connect-mongo": "*",
     "tape": "*",
-    "ejs": "^1.0.0"
+    "ejs": "^1.0.0",
+    "unzip": "^0.1.9"
   },
   "devDependencies": {
     "tape": "*"
