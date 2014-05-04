@@ -48,6 +48,19 @@ function toggleCommentPost(id, expanded) {
     document.getElementById("comment-cancel-" + id).style.display="none";
   }
 }
+
+var userMap = {
+  "sweetvvck@gmail.com": "ChengKe",
+  "chengke@sweetvvck.com": "ChengKe",
+  "cn.lixiaojun@gmail.com": "Li Xiaojun"
+}
+
+function selectUser(value){
+  var user = userMap[value];
+  document.getElementById('user').value=value;
+  document.getElementById('username').innerHTML=user;
+}
+
 </script>
 <title>Photofeed</title>
 <link rel="stylesheet" type="text/css" href="./res/photofeed.css">
@@ -55,14 +68,6 @@ function toggleCommentPost(id, expanded) {
 
 <body cz-shortcut-listen="true">
   <div class="wrap">
-
-    <div class="header group">
-      <h1>
-        <img src="./res/photofeed.png" alt="Photofeed">
-      </h1>
-      <div class="glow"></div>
-    </div>
-
     <div id="upload-wrap">
       <div id="upload">
         <div class="account group">
@@ -71,20 +76,27 @@ function toggleCommentPost(id, expanded) {
           </div>
           <!-- /#account-thumb -->
           <div id="account-name">
-            <h2>chengke</h2>
-            <p>chengke@sweetvvck.com
-              | <a href="http://photo.sweetvvck.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttp://photo.sweetvvck.com/photofeed.jsp%26service%3Dah">Sign
-                out</a>
+            <h2 id="username">chengke</h2>
+            <p>
+              <select onchange="selectUser(this.value)">
+                <option>
+                  chengke@sweetvvck.com
+                </option>
+                <option>
+                  cn.lixiaojun@gmail.com
+                </option>
+              </select>
             </p>
           </div>
           <!-- /#account-name -->
         </div>
         <!-- /.account -->
-        <a id="btn-choose-image" class="active btn" onclick="togglePhotoPost(true)" style="display: inline-block;">Choose an image</a>
+        <a id="btn-choose-image" class="active btn" onclick="togglePhotoPost(true)" style="display: inline-block;">Choose a file</a>
         <div id="upload-form" style="display: none;">
           <form action="/" method="post" enctype="multipart/form-data">
             <input id="input-file" class="inactive file btn" type="file" name="photo" onchange="onFileSelected()">
             <textarea name="title" placeholder="Write a description"></textarea>
+            <input id="user" name="user" type="hidden">
             <input id="btn-post" class="inactive btn" type="submit" value="Post" disabled="">
             <a class="cancel" onclick="togglePhotoPost(false)">Cancel</a>
           </form>
@@ -95,101 +107,6 @@ function toggleCommentPost(id, expanded) {
     <!-- /#upload-wrap -->
 
     <!-- KK -->
-    
-    <div class="feed first ">
-      <div class="post group">
-        <div class="image-wrap">
-          <img class="photo-image" src="./res/download" alt="Photo Image">
-        </div>
-        <div class="owner group">
-          <img src="./res/dp.png" alt="">
-          <div class="desc">
-            <h3>chengke</h3>
-            <p>妹妹在干什么
-            </p><p>
-            </p><p class="timestamp">10:38AM Apr 27, 2014 UTC</p>
-          </div>
-          <!-- /.desc -->
-        </div>
-        <!-- /.usr -->
-      </div>
-      <!-- /.post -->
-      
-      <div class="post group">
-        <div class="usr last">
-          <img src="./res/dp.png" alt="">
-          <div class="comment">
-            <h3>chengke</h3>
-            <form action="http://photo.sweetvvck.com/post" method="post">
-              <input type="hidden" name="user" value="109403870602066786043">
-              <input type="hidden" name="id" value="5707702298738688">
-              <textarea id="comment-input-0" class="post-comment collapsed" name="comment" placeholder="Post a comment" onclick="toggleCommentPost(0, true)" onchange="onCommentChanged(0)" onkeyup="onCommentChanged(0)" onpaste="onCommentChanged(0)"></textarea>
-              <input id="comment-submit-0" class="inactive btn" style="display:none" type="submit" name="send" value="Post comment">
-              <a id="comment-cancel-0" class="cancel" style="display:none" onclick="toggleCommentPost(0, false)">Cancel</a>
-            </form>
-          </div>
-          <!-- /.comment -->
-        </div>
-        <!-- /.usr -->
-      </div>
-      <!-- /.post -->
-    </div>
-    <!-- /.feed -->
-    
-    <div class="feed  last">
-      <div class="post group">
-        <div class="image-wrap">
-          <img class="photo-image" src="./res/download(1)" alt="Photo Image">
-        </div>
-        <div class="owner group">
-          <img src="./res/dp.png" alt="">
-          <div class="desc">
-            <h3>chengke</h3>
-            <p>
-            </p><p>
-            </p><p class="timestamp">3:43AM Apr 27, 2014 UTC</p>
-          </div>
-          <!-- /.desc -->
-        </div>
-        <!-- /.usr -->
-      </div>
-      <!-- /.post -->
-      
-      <div class="post group">
-        <div class="usr">
-          <img src="./res/xm.png" alt="">
-          <div class="comment">
-            <h3>sweetvvck</h3>
-            <p>haha
-            </p><p>
-            </p><p class="timestamp">3:44AM Apr 27, 2014 UTC</p>
-          </div>
-          <!-- /.comment -->
-        </div>
-        <!-- /.usr -->
-      </div>
-      <!-- /.post -->
-
-      
-      <div class="post group">
-        <div class="usr last">
-          <img src="./res/dp.png" alt="">
-          <div class="comment">
-            <h3>chengke</h3>
-            <form action="http://photo.sweetvvck.com/post" method="post">
-              <input type="hidden" name="user" value="109403870602066786043">
-              <input type="hidden" name="id" value="5629499534213120">
-              <textarea id="comment-input-1" class="post-comment collapsed" name="comment" placeholder="Post a comment" onclick="toggleCommentPost(1, true)" onchange="onCommentChanged(1)" onkeyup="onCommentChanged(1)" onpaste="onCommentChanged(1)"></textarea>
-              <input id="comment-submit-1" class="inactive btn" style="display: none;" type="submit" name="send" value="Post comment" disabled="">
-              <a id="comment-cancel-1" class="cancel" style="display: none;" onclick="toggleCommentPost(1, false)">Cancel</a>
-            </form>
-          </div>
-          <!-- /.comment -->
-        </div>
-        <!-- /.usr -->
-      </div>
-      <!-- /.post -->
-    </div>
     <!-- /.feed -->
     
   </div>
